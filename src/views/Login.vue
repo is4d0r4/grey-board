@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 const loginForm = ref({
-  username: '',
+  cpf: '',
   password: '',
 });
 const loading = ref(false)
+const router = useRouter()
 
 function login() {
   loading.value = true
@@ -13,6 +15,10 @@ function login() {
   setTimeout(() => {
     loading.value = false
   }, 3000)
+}
+
+function newLogin(){
+  router.push(`/newLogin`)
 }
 </script>
 
@@ -30,8 +36,8 @@ function login() {
         </div>
 
         <v-text-field
-          v-model="loginForm.username"
-          label="Usuário"
+          v-model="loginForm.cpf"
+          label="CPF"
           density="comfortable"
           variant="outlined"
           rounded="xl"
@@ -61,8 +67,9 @@ function login() {
           ENTRAR
         </v-btn>
 
-        <div class="text-center">
+        <div class="flex flex-col items-center space-y-1">
           <a href="#" class="text-caption text-decoration-underline">Esqueci minha senha</a>
+          <a href="newLogin" class="text-caption text-decoration-underline">Novo Login</a>
         </div>
       </v-card>
     </v-main>
