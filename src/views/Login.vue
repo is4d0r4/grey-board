@@ -8,10 +8,23 @@ const loginForm = ref({
 });
 const loading = ref(false)
 const router = useRouter()
+const loginFormRef = ref()
+const cpfRules = [
+  (v: string) => !!v || 'CPF é obrigatório',
+  (v: string) => v.length === 9 || 'CPF incompleto',
+]
 
-function login() {
-  loading.value = true
+const passwordRules = [
+  (v: string) => !!v || 'Senha é obrigatória',
+  (v: string) => v.length >= 6 || 'Mínimo de 6 caracteres',
+]
 
+async function login() {
+  const formIsValid = await loginFormRef.value?.validate()
+
+  if (!formIsValid) return
+
+  // loading.value = true
   setTimeout(() => {
     loading.value = false
   }, 3000)
@@ -35,38 +48,40 @@ function newLogin(){
           <img src="../assets/logo.png">
         </div>
 
-        <v-text-field
-          v-model="loginForm.cpf"
-          label="CPF"
-          density="comfortable"
-          variant="outlined"
-          rounded="xl"
-          hide-details
-          class="mb-4"
-        />
+        <v-form ref="loginFormRef">
+            <v-text-field
+              :rules="cpfRules"
+              v-model="loginForm.cpf"
+              label="CPF"
+              density="comfortable"
+              variant="outlined"
+              rounded="xl"
+              class="mb-4"
+            />
 
-        <v-text-field
-          v-model="loginForm.password"
-          label="Senha"
-          type="password"
-          density="comfortable"
-          variant="outlined"
-          rounded="xl"
-          hide-details
-          class="mb-4"
-        />
+            <v-text-field
+             :rules="passwordRules"
+              v-model="loginForm.password"
+              label="Senha"
+              type="password"
+              density="comfortable"
+              variant="outlined"
+              rounded="xl"
+              class="mb-4"
+            />
 
-        <v-btn
-          block
-          color="red lighten-1"
-          size="large"
-          class="text-white font-weight-bold rounded-xl mb-3"
-          :loading="loading"
-          @click="login()"
-        >
-          ENTRAR
-        </v-btn>
-
+            <v-btn
+              block
+              color="red lighten-1"
+              size="large"
+              class="text-white font-weight-bold rounded-xl mb-3"
+              :loading="loading"
+              @click="login()"
+            >
+              ENTRAR
+            </v-btn>
+        </v-form>
+        
         <div class="flex flex-col items-center space-y-1">
           <a href="#" class="text-caption text-decoration-underline">Esqueci minha senha</a>
           <a href="newLogin" class="text-caption text-decoration-underline">Novo Login</a>
