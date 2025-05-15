@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
     const items = [
         { title: 'Meus Dados', icon: 'mdi-account' },
         { title: 'Quadro de Cirurgia', icon: 'mdi-clipboard-text-outline' },
@@ -7,6 +10,10 @@
         { title: 'Residentes', icon: 'mdi-school-outline' },
         { title: 'Pacientes', icon: 'mdi-account-multiple' },
     ]
+
+    function getOut(){
+        router.replace(`/`)
+    }
 </script>
 
 <template>
@@ -23,7 +30,7 @@
                     <v-list-item v-for="item in items" class="hover:bg-sky-100" :key="item.title" :prepend-icon="item.icon" :title="item.title" />
                 </v-list>
                 <div class="mt-auto text-center">
-                <a href="#" class="text-caption text-decoration-underline">SAIR</a>
+                <a @click="getOut" class="text-caption text-decoration-underline">SAIR</a>
                 </div>
             </v-navigation-drawer>
         </v-app>

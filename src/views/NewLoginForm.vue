@@ -11,6 +11,7 @@ const newUserForm = ref ({
     email: '',
     profile_id: '',
     crm: '',
+    especiality: '',
     password: '',
     confirmPassword: ''
 })
@@ -22,6 +23,10 @@ const profiles = ref([
   { name: 'Cirurgião(a)', id: 4 },
   { name: 'Anestesista', id: 5 },
 ])
+
+const formRules = [
+  (v: string) => !!v || 'Este campo é obrigatório',
+]
 
 function goBack() {
   router.push('/')
@@ -45,10 +50,10 @@ function goBack() {
             <v-text-field
             v-model="newUserForm.name"
             label="Nome Completo*"
+            :rules="formRules"
             density="comfortable"
             variant="outlined"
             rounded="xl"
-            hide-details
             />
         </v-col>
 
@@ -56,20 +61,20 @@ function goBack() {
             <v-text-field
             v-model="newUserForm.cpf"
             label="CPF*"
+            :rules="formRules"
             density="comfortable"
             variant="outlined"
             rounded="xl"
-            hide-details
             />
         </v-col>
         <v-col cols="6">
             <v-text-field
             v-model="newUserForm.telephone"
             label="Telefone*"
+            :rules="formRules"
             density="comfortable"
             variant="outlined"
             rounded="xl"
-            hide-details
             class="mb-4"
             />
         </v-col>
@@ -77,13 +82,13 @@ function goBack() {
             <v-autocomplete
                 v-model="newUserForm.profile_id"
                 :items="profiles"
+                :rules="formRules"
                 item-title="name"
                 item-value="id"
                 label="Perfil*"
                 density="comfortable"
                 variant="outlined"
                 rounded="xl"
-                hide-details
                 class="mb-4"
             />
         </v-col>
@@ -94,7 +99,17 @@ function goBack() {
             density="comfortable"
             variant="outlined"
             rounded="xl"
-            hide-details
+            class="mb-4"
+            />
+        </v-col>
+        <v-col cols="12">
+            <v-autocomplete
+            v-model="newUserForm.especiality"
+            label="Especialidade"
+            :rules="formRules"
+            density="comfortable"
+            variant="outlined"
+            rounded="xl"
             class="mb-4"
             />
         </v-col>
@@ -102,10 +117,10 @@ function goBack() {
             <v-text-field
             v-model="newUserForm.password"
             label="Senha*"
+            :rules="formRules"
             density="comfortable"
             variant="outlined"
             rounded="xl"
-            hide-details
             class="mb-4"
             />
         </v-col>
@@ -114,9 +129,9 @@ function goBack() {
             v-model="newUserForm.confirmPassword"
             label="Confirmar Senha*"
             density="comfortable"
+            :rules="formRules"
             variant="outlined"
             rounded="xl"
-            hide-details
             class="mb-4"
             />
         </v-col>

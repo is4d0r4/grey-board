@@ -11,7 +11,7 @@ const router = useRouter()
 const loginFormRef = ref()
 const cpfRules = [
   (v: string) => !!v || 'CPF é obrigatório',
-  (v: string) => v.length === 9 || 'CPF incompleto',
+  (v: string) => v.length === 11 || 'CPF incompleto',
 ]
 
 const passwordRules = [
@@ -24,9 +24,11 @@ async function login() {
 
   if (!formIsValid) return
 
-  // loading.value = true
+  loading.value = true
+
   setTimeout(() => {
     loading.value = false
+    router.push('/grey-board') 
   }, 3000)
 }
 
