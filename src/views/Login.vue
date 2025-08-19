@@ -10,8 +10,8 @@ const loading = ref(false)
 const router = useRouter()
 const loginFormRef = ref()
 const cpfRules = [
-  (v: string) => !!v || 'CPF é obrigatório',
-  (v: string) => v.length === 11 || 'CPF incompleto',
+  (v: string) => !!v || 'CPF é obrigatório.',
+  (v: string) => v.length === 14 || 'CPF incompleto. Use pontos e traço',
 ]
 
 const passwordRules = [
@@ -20,9 +20,9 @@ const passwordRules = [
 ]
 
 async function login() {
-  const formIsValid = await loginFormRef.value?.validate()
+  const { valid } = await loginFormRef.value?.validate()
 
-  if (!formIsValid) return
+  if (!valid) return
 
   loading.value = true
 

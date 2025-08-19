@@ -1,14 +1,16 @@
 # grey-board-project
 
-This template should help get you started developing with Vue 3 in Vite.
+O quadro de cirurgia mais famoso do mundo, agora no formato digital!
 
-## Recommended IDE Setup
+## About
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Esse mini projeto foi desenvolvido com o intuito de colocar em prática minhas habilidades com Vue 3 e Pinia
 
-## Type Support for `.vue` Imports in TS
+## Preview:
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+<img src="./src/assets/login-grey-board.png" alt="Tela de Login" width="42" height="42">
+<img src="./src/assets/cadastro-grey-board.png" alt="Tela de Login" width="42" height="42">
+<img src="./src/assets/Captura de tela 2025-08-19 194328.png" alt="Tela de Login" width="42" height="42">
 
 ## Customize configuration
 
