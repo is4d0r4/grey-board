@@ -8,13 +8,9 @@ Esse mini projeto foi desenvolvido com o intuito de colocar em prática minhas h
 
 ## Preview:
 
-<img src="./src/assets/login-grey-board.png" alt="Tela de Login" width="42" height="42">
-<img src="./src/assets/cadastro-grey-board.png" alt="Tela de Login" width="42" height="42">
-<img src="./src/assets/Captura de tela 2025-08-19 194328.png" alt="Tela de Login" width="42" height="42">
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
+<img src="./src/assets/login-grey-board.png" alt="Tela de Login">
+<img src="./src/assets/cadastro-grey-board.png" alt="Tela de Login">
+<img src="./src/assets/Captura de tela 2025-08-19 194328.png" alt="Tela de Login">
 
 ## Project Setup
 
